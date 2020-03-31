@@ -9,12 +9,12 @@ const expressHandlebars = require('express-handlebars');
 
 const port = process.env.PORT || process.env.NODE_PORT || 3000;
 
-const dbURL = process.env.MONGOD_URI || 'mongodb://localhost/DomoMaker';
+const dbURL = mongodb: //heroku_skrw4d8n:v04g4ccufr0no2cr68psqvbk25@ds061375.mlab.com:61375/heroku_skrw4d8n || 'mongodb://localhost/DomoMaker';
 
-const mongooseOptions = {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-};
+  const mongooseOptions = {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  };
 
 mongoose.connect(dbURL, mongooseOptions, (err) => {
   if (err) {
