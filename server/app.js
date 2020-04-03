@@ -10,7 +10,7 @@ const session = require('express-session');
 
 const port = process.env.PORT || process.env.NODE_PORT || 3000;
 
-const dbURL = 'mongodb://heroku_skrw4d8n:v04g4ccufr0no2cr68psqvbk25@ds061375.mlab.com:61375/heroku_skrw4d8n' || 'mongodb://localhost/DomoMaker';
+const dbURL = 'mongodb://heroku_7fxpxs6q:skpm8d2fm8fg7kjm08b0pv02gv@ds155150.mlab.com:55150/heroku_7fxpxs6q' || 'mongodb://localhost/DomoMaker';
 
 const mongooseOptions = {
   useNewUrlParser: true,
