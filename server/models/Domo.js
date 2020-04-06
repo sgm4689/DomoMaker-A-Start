@@ -1,10 +1,11 @@
 const mongoose = require('mongoose');
+
 mongoose.Promise = global.Promise;
 const _ = require('underscore');
 
 let DomoModel = {};
 
-//Converts string to mongo ID
+// Converts string to mongo ID
 const convertId = mongoose.Types.ObjectId;
 const setName = (name) => _.escape(name).trim();
 
