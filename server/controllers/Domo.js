@@ -13,9 +13,8 @@ const makerPage = (req, res) => {
       });
     }
     return res.render('app', {
-      csrfToken: req.csrfToken()
-    }, {
-      domos: docs,
+      csrfToken: req.csrfToken(),
+      domos: docs
     });
   });
 };

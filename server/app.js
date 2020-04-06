@@ -29,15 +29,15 @@ mongoose.connect(dbURL, mongooseOptions, (err) => {
 });
 
 // Local redis var
-// let redisURL = {
-//   hostname: 'redis-15969.c9.us-east-1-2.ec2.cloud.redislabs.com',
-//   port: 15969,
-// };
-
 let redisURL = {
-  hostname: 'redis://rediscloud:rQgP2D8d3Pb8DalaYUWt7fpzwQ7Pnb93@redis-18610.c12.us-east-1-4.ec2.cloud.redislabs.com',
-  port: 18610,
+  hostname: 'redis-15969.c9.us-east-1-2.ec2.cloud.redislabs.com',
+  port: 15969,
 };
+
+// let redisURL = {
+//   hostname: 'redis://rediscloud:rQgP2D8d3Pb8DalaYUWt7fpzwQ7Pnb93@redis-18610.c12.us-east-1-4.ec2.cloud.redislabs.com',
+//   port: 18610,
+// };
 
 let redisPASS = 'R7Ixr8hncZuBOEO4NRWNOCU4XlAlZPe3';
 if (process.env.REDISCLOUD_URL) {
@@ -86,7 +86,7 @@ app.use((err, req, res, next) => {
 
   console.log('Missing CSRF token');
   return false;
-})
+});
 
 router(app);
 
