@@ -6,7 +6,7 @@
   <link rel="shortcut icon" href="/assets/img/favicon.png"/>
   <link rel="stylesheet" type="text/css" href="/assets/style.css"/>
 </head>
-<body> 
+<body>
   <nav><a href="/login"><img id="logo" src="/assets/img/face.png" alt="face logo"/></a>
     <div class="navlink"><a href="/login">Login</a></div>
     <div class="navlink"><a href="/signup">Sign up</a></div>
@@ -17,6 +17,7 @@
       <input id="user" type="text" name="username" placeholder="username"/>
       <label for="pass">Password: </label>
       <input id="pass" type="password" name="pass" placeholder="password"/>
+      <input type="hidden" name="_csrf" value={{csrfToken}}/>
       <input class="formSubmit" type="submit" value="Sign In" />
     </form>
   </section>
