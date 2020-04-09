@@ -1,7 +1,7 @@
 const models = require('../models');
 
 const {
-  Domo
+  Domo,
 } = models;
 
 const makerPage = (req, res) => {
@@ -14,7 +14,7 @@ const makerPage = (req, res) => {
     }
     return res.render('app', {
       csrfToken: req.csrfToken(),
-      domos: docs
+      domos: docs,
     });
   });
 };
@@ -55,5 +55,24 @@ const makeDomo = (req, res) => {
   return domoPromise;
 };
 
+const getDomos = (request, response) => {
+  const req = request;
+  const res = response;
+
+  return Domo.DomoModel.findByOwner(req.session.account._id, (err, docs) => {
+    if (err) {
+      console.log(err);
+      return res.status(400).json({
+        error: 'An error occured',
+      });
+    }
+
+    return res.json({
+      domos: docs,
+    });
+  });
+};
+
 module.exports.makerPage = makerPage;
 module.exports.make = makeDomo;
+module.exports.getDomos = getDomos;
