@@ -1,12 +1,14 @@
 "use strict";
 
+var token;
+
 var handleDomo = function handleDomo(e) {
   e.preventDefault();
   $("#domoMessage").animate({
     width: 'hide'
   }, 350);
 
-  if ($("#domoName").val() == '' || $("#domoAge").val() == '') {
+  if ($("#domoName").val() == '' || $("#domoAge").val() == '' || $("#domoHeight").val() == '') {
     handleError("RAWR! All fields are required");
     return false;
   }
@@ -39,6 +41,13 @@ var DomoForm = function DomoForm(props) {
       type: "text",
       name: "age",
       placeholder: "Domo Age"
+    }), /*#__PURE__*/React.createElement("label", {
+      htmlFor: "height"
+    }, "Height: "), /*#__PURE__*/React.createElement("input", {
+      id: "domoHeight",
+      type: "text",
+      name: "height",
+      placeholder: "Domo Height"
     }), /*#__PURE__*/React.createElement("input", {
       type: "hidden",
       name: "_csrf",
@@ -64,16 +73,24 @@ var DomoList = function DomoList(props) {
   var domoNodes = props.domos.map(function (domo) {
     return (/*#__PURE__*/React.createElement("div", {
         key: domo._id,
-        className: "domo"
+        className: "domo",
+        onClick: function onClick() {
+          DeleteDomo(domo.name);
+        }
       }, /*#__PURE__*/React.createElement("img", {
-        src: "/assets/img/domoFace.jpeg",
+        src: "/assets/img/face.png",
         alt: "domo face",
         className: "domoFace"
       }), /*#__PURE__*/React.createElement("h3", {
         className: "domoName"
       }, " Name: ", domo.name, " "), /*#__PURE__*/React.createElement("h3", {
         className: "domoAge"
-      }, " Age ", domo.age, " "))
+      }, " Age ", domo.age, " "), /*#__PURE__*/React.createElement("h3", {
+        className: "domoHeight"
+      }, " Height ", domo.height, " "), /*#__PURE__*/React.createElement("img", {
+        src: "/assets/img/delete.png",
+        className: "deleteButton"
+      }))
     );
   });
   return (/*#__PURE__*/React.createElement("div", {
@@ -102,7 +119,15 @@ var setup = function setup(csrf) {
 
 var getToken = function getToken() {
   sendAjax('GET', '/getToken', null, function (result) {
-    setup(result.csrfToken);
+    token = result.csrfToken;
+    setup(token);
+  });
+};
+
+var DeleteDomo = function DeleteDomo(domoName) {
+  var bigString = "name=".concat(domoName, "&_csrf=").concat(token);
+  sendAjax('POST', '/getCollection', bigString, function (result) {
+    loadDomosFromServer();
   });
 };
 
