@@ -78,7 +78,7 @@ var DomoList = function DomoList(props) {
           DeleteDomo(domo.name);
         }
       }, /*#__PURE__*/React.createElement("img", {
-        src: "/assets/img/domoFace.jpeg",
+        src: "/assets/img/face.png",
         alt: "domo face",
         className: "domoFace"
       }), /*#__PURE__*/React.createElement("h3", {
