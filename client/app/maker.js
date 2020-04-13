@@ -54,7 +54,7 @@ const domoNodes = props.domos.map((domo) => {
       <div key={domo._id} className="domo" onClick={() => {
         DeleteDomo(domo.name);
       }}>
-        <img src="/assets/img/face.png" alt="domo face" className="domoFace" />
+        <img src="/assets/img/domoFace.jpeg" alt="domo face" className="domoFace" />
         <h3 className="domoName"> Name: {domo.name} </h3>
         <h3 className="domoAge"> Age {domo.age} </h3>
         <h3 className="domoHeight"> Height {domo.height} </h3>

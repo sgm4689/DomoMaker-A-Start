@@ -14,7 +14,7 @@ const redis = require('redis');
 
 const port = process.env.PORT || process.env.NODE_PORT || 3000;
 
-const dbURL = /* 'mongodb://heroku_mbpqnhm1:4qcg0q9jje6b5h8hvajftu2ss7@ds117819.mlab.com:17819/heroku_mbpqnhm1' || */ 'mongodb://localhost/DomoMaker';
+const dbURL =  'mongodb://heroku_wfccd8gd:jurr6b1qlqiflaii1n25515nfh@ds241097' ||  'mongodb://localhost/DomoMaker';
 
 const mongooseOptions = {
   useNewUrlParser: true,
@@ -29,15 +29,15 @@ mongoose.connect(dbURL, mongooseOptions, (err) => {
 });
 
 // Local redis var
-let redisURL = {
-  hostname: 'redis-15969.c9.us-east-1-2.ec2.cloud.redislabs.com',
-  port: 15969,
-};
-
 // let redisURL = {
-//   hostname: 'redis://rediscloud:Tr2DmAx6VigWjfGej56BUalH0zBPs60b@redis-12281.c15.us-east-1-4.ec2.cloud.redislabs.com',
-//   port: 12281,
+//   hostname: 'redis-15969.c9.us-east-1-2.ec2.cloud.redislabs.com',
+//   port: 15969,
 // };
+
+let redisURL = {
+  hostname: 'redis://rediscloud:Nt6uYLuatF5FTIrhpMRpvw9bHGwOjnwG@redis-10076.c52.us-east-1-4.ec2.cloud.redislabs.com',
+  port: 10076,
+};
 
 let redisPASS = 'R7Ixr8hncZuBOEO4NRWNOCU4XlAlZPe3';
 if (process.env.REDISCLOUD_URL) {
