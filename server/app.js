@@ -14,7 +14,7 @@ const redis = require('redis');
 
 const port = process.env.PORT || process.env.NODE_PORT || 3000;
 
-const dbURL =  'mongodb://heroku_wfccd8gd:jurr6b1qlqiflaii1n25515nfh@ds241097' ||  'mongodb://localhost/DomoMaker';
+const dbURL = 'mongodb://heroku_wfccd8gd:jurr6b1qlqiflaii1n25515nfh@ds241097.mlab.com:41097/heroku_wfccd8gd' || 'mongodb://localhost/DomoMaker';
 
 const mongooseOptions = {
   useNewUrlParser: true,
